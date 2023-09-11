@@ -1,0 +1,12 @@
+html, body {
+  padding: 0px;
+  background-color: #1F2024;
+  color: #1F2024;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+* {
+  border-radius: 5px;
+}
