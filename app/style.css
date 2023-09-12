@@ -10,3 +10,13 @@ html, body {
 * {
   border-radius: 5px;
 }
+
+a {
+  text-decoration: none;
+  color: #FF29DD;
+  font-weight: 700;
+}
+
+a:hover {
+  color: cyan;
+}

@@ -13,9 +13,9 @@ import {
 import { useNavigate } from "@remix-run/react";
 
 export const Colors = {
-  myBlue: "#2C0AF5",
+  myBlue: "cyan",
   myPink: "#FF29DD",
-  myGreen: "#11ADA4",
+  myGreen: "#7cfcab",
   myYellow: "#F1B770",
   myPurple: "#43126D",
   myDark: "#1F2024",
