@@ -27,7 +27,7 @@ export const ButtonStyles = {
   color: Colors.myDark,
   fontSize: "1rem",
   h: "40px",
-  w: "130px",
+  w: "100px",
   border: "1px solid",
   shadow: "2xl",
   _hover: {
@@ -55,6 +55,9 @@ export function NavBar() {
       <Button onClick={ClickAction("/")} {...ButtonStyles}>
         Home
       </Button>
+      <Button onClick={ClickAction("countries")} {...ButtonStyles}>
+        Countries
+      </Button>
       <Button onClick={ClickAction("users")} {...ButtonStyles}>
         Users
       </Button>{" "}
@@ -62,7 +65,7 @@ export function NavBar() {
         Photos
       </Button>
       <Button onClick={ClickAction("reqresUsers")} {...ButtonStyles}>
-        Reqres Users
+        Reqres
       </Button>
     </ButtonGroup>
   );
@@ -128,7 +131,7 @@ export function ReqresUserCard(user: any) {
           <HStack w="100%">
             <HStack>
               <Avatar src={user.avatar} />
-              <VStack align="flex-start">
+              <VStack align="flex-start" spacing={0}>
                 <Box rounded="none" fontSize="1rem" color={Colors.myBlue}>
                   <Text>
                     {user.firstName} {user.lastName}

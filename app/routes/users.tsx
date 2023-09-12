@@ -1,4 +1,4 @@
-import { Heading, Text, VStack, Wrap } from "@chakra-ui/react";
+import { Text, VStack, Wrap } from "@chakra-ui/react";
 import { LoaderFunction } from "@remix-run/node";
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 
