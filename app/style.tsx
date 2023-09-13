@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  BoxProps,
   Button,
   ButtonGroup,
   Card,
@@ -73,12 +74,10 @@ export function NavBar() {
 export function PageContainer({
   children,
   bg = Colors.myYellow,
-}: {
-  children?: React.ReactNode;
-  bg?: string;
-}) {
+  ...props // capture the rest of the BoxProps properties
+}: { children?: React.ReactNode; bg?: string } & BoxProps) {
   return (
-    <Box w="100%" maxW="1200px" bg={bg} p={3}>
+    <Box w="100%" maxW="1200px" bg={bg} p={3} {...props}>
       {children}
     </Box>
   );

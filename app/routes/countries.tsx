@@ -6,7 +6,7 @@ import SearchCountries, {
   fetchCountryData,
 } from "../countriesComponents/searchCountries"; // assuming both are exported from the same file
 import { ButtonStyles, Colors, PageContainer } from "~/style";
-import { Button, Input, Select, Stack, VStack } from "@chakra-ui/react";
+import { Button, Input, Select, Stack, VStack, Wrap } from "@chakra-ui/react";
 
 export default function Countries() {
   const [searchType, setSearchType] = useState("name");
@@ -24,7 +24,7 @@ export default function Countries() {
   const fieldWidth = "300px";
 
   return (
-    <PageContainer>
+    <PageContainer maxW="1500px">
       <VStack w="100%" p={2} align="flex-start">
         <Stack
           direction={{ base: "column", md: "row" }}
@@ -69,14 +69,16 @@ export default function Countries() {
           </Button>
         </Stack>
 
-        {countryData && "error" in countryData ? (
-          <div>Error: {countryData.error}</div>
-        ) : (
-          Array.isArray(countryData) &&
-          countryData.map((country: Country) => (
-            <SearchCountries key={country.cca3} {...country} />
-          ))
-        )}
+        <Wrap w="100%">
+          {countryData && "error" in countryData ? (
+            <div>Error: {countryData.error}</div>
+          ) : (
+            Array.isArray(countryData) &&
+            countryData.map((country: Country) => (
+              <SearchCountries key={country.cca3} {...country} />
+            ))
+          )}
+        </Wrap>
       </VStack>
     </PageContainer>
   );

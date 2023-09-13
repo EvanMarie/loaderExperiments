@@ -154,10 +154,12 @@ export default function SearchCountries(props: Country | { error: string }) {
       coatOfArmsUrl={coatOfArmsUrl}
       mapURL={mapURL}
       subregion={props.subregion}
-      capital={props.capital[0]}
+      capital={props.capital?.[0] || "N/A"}
       population={props.population}
       borders={props.borders}
       languages={props.languages}
+      unMember={props.unMember}
+      currencies={props.currencies}
     />
   );
 }
