@@ -26,7 +26,6 @@ export const ButtonStyles = {
   bg: Colors.myGreen,
   color: Colors.myDark,
   fontSize: "1rem",
-  h: "40px",
   w: "100px",
   border: "1px solid",
   shadow: "2xl",

@@ -1,7 +1,4 @@
-import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import { LoaderFunction, json, LoaderArgs } from "@remix-run/node";
-import { Link as ReactLink } from "react-router-dom";
-import { Colors } from "~/style";
 import CountryWrapItem from "./countryWrapItem";
 
 export interface Country {
@@ -91,11 +88,6 @@ export interface Country {
   unMember: boolean;
 }
 
-const labelStyle = {
-  fontWeight: "bold",
-  color: Colors.myGreen,
-};
-
 export let loader: LoaderFunction = async ({ request }: LoaderArgs) => {
   const url = new URL(request.url);
   let searchTerm = url.searchParams.get("term");
@@ -165,7 +157,7 @@ export default function SearchCountries(props: Country | { error: string }) {
       capital={props.capital[0]}
       population={props.population}
       borders={props.borders}
-      languages={Object.values(props.languages)}
+      languages={props.languages}
     />
   );
 }

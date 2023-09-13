@@ -6,7 +6,7 @@ import SearchCountries, {
   fetchCountryData,
 } from "../countriesComponents/searchCountries"; // assuming both are exported from the same file
 import { ButtonStyles, Colors, PageContainer } from "~/style";
-import { Button, HStack, Input, Select, VStack } from "@chakra-ui/react";
+import { Button, Input, Select, Stack, VStack } from "@chakra-ui/react";
 
 export default function Countries() {
   const [searchType, setSearchType] = useState("name");
@@ -21,14 +21,22 @@ export default function Countries() {
     console.log(data);
   };
 
+  const fieldWidth = "300px";
+
   return (
     <PageContainer>
       <VStack w="100%" p={2} align="flex-start">
-        <HStack w="100%">
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          w="100%"
+          justify="center"
+          align="center"
+        >
           <Select
             value={searchType}
             onChange={(e) => setSearchType(e.target.value)}
             variant="filled"
+            w={fieldWidth}
             size="sm"
             rounded="md"
             bg={Colors.myGreen}
@@ -43,17 +51,24 @@ export default function Countries() {
           <Input
             variant="filled"
             size="sm"
+            w={fieldWidth}
             rounded="md"
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Enter search term..."
           />
-          <Button {...ButtonStyles} size="sm" onClick={handleSearch}>
+
+          <Button
+            {...ButtonStyles}
+            w={fieldWidth}
+            size="sm"
+            onClick={handleSearch}
+          >
             Search
           </Button>
-        </HStack>
-        {/* {countryData && <SearchCountries {...countryData} />} */}
+        </Stack>
+
         {countryData && "error" in countryData ? (
           <div>Error: {countryData.error}</div>
         ) : (
