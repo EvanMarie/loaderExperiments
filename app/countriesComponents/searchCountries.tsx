@@ -126,7 +126,7 @@ export async function fetchCountryData(
     console.log(data);
 
     if (!data || data.status === 404) {
-      return { error: "Country not found" };
+      return { error: "No results available for this search" };
     }
 
     return Array.isArray(data) ? data : [data]; // Ensure the result is always an array

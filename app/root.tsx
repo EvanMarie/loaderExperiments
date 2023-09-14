@@ -51,7 +51,8 @@ export default function App() {
             justify="flex-start"
             bg={Colors.myDark}
             color={Colors.myDark}
-            p="15px"
+            py="15px"
+            overflowX="hidden"
           >
             <NavBar />
             <Outlet />

@@ -1,14 +1,14 @@
 import {
-  Box,
+  Center,
+  Flex,
   HStack,
   IconButton,
   Image,
   Text,
   Tooltip,
   VStack,
-  WrapItem,
 } from "@chakra-ui/react";
-import { Colors } from "~/style";
+import { Colors, myShadow } from "~/style";
 import { Link as ReactLink } from "react-router-dom";
 import countries from "i18n-iso-countries";
 import { BsPinMapFill } from "react-icons/bs";
@@ -72,9 +72,18 @@ export default function CountryWrapItem({
     const currencyElements = Object.values(currencies).map((currency) => (
       <HStack key={currency.name} spacing={2}>
         <Text>{currency.name}</Text>
-        <Box p={1} border="1px solid black">
-          <Text fontWeight="700">{currency.symbol}</Text>
-        </Box>
+        <Center
+          p={1}
+          border="1px solid white"
+          bg={Colors.myGreen}
+          color={Colors.myDark}
+          w="40px"
+          h="40px"
+        >
+          <Text fontWeight="700" fontSize="1.25rem">
+            {currency.symbol}
+          </Text>
+        </Center>
       </HStack>
     ));
     return currencyElements;
@@ -82,20 +91,30 @@ export default function CountryWrapItem({
 
   console.log(currencies);
   return (
-    <WrapItem w="390px" shadow="2px 2px 5px rgba(0,0,0,0.5)">
+    <Flex w="390px" direction="column" bg={Colors.myDark}>
       <VStack
-        bg={Colors.myDark}
         p={4}
         color={Colors.myLight}
         align="flex-start"
+        shadow={myShadow}
+        flex="1"
+        h="100%"
       >
-        <HStack justify="space-evenly">
+        <HStack
+          justify="space-evenly"
+          bg={Colors.myLight}
+          p={2}
+          w="100%"
+          shadow={myShadow}
+          spacing={4}
+        >
           <Image src={flagUrl} alt={`Flag of ${common}`} w="50%" maxH="120px" />
           {coatOfArmsUrl && (
             <Image
               src={coatOfArmsUrl}
               alt={`Coat of Arms of ${common}`}
               w="30%"
+              maxH="120px"
             />
           )}
         </HStack>
@@ -108,19 +127,21 @@ export default function CountryWrapItem({
               <Tooltip label="Google Maps">
                 <IconButton
                   size="sm"
-                  bg={Colors.myGreen}
+                  bg={Colors.myPink}
+                  color={Colors.myLight}
+                  border="1px solid"
                   _hover={{ bg: Colors.myBlue }}
-                  icon={<BsPinMapFill />}
+                  icon={<BsPinMapFill size="18px" />}
                   aria-label="Google Maps"
                 />
               </Tooltip>
             </ReactLink>{" "}
           </HStack>
-          <Text style={{ color: Colors.myYellow, fontSize: "1rem" }}>
+          <Text style={{ color: Colors.myMedium, fontSize: "1rem" }}>
             ( {official})
           </Text>
         </VStack>
-        <VStack w="100%" spacing={1} align="flex-start" fontSize="1rem">
+        <VStack w="100%" spacing={1} align="flex-start" fontSize="0.9rem">
           <Text>
             <span style={labelStyle}>Region:</span> {subregion}
           </Text>
@@ -154,6 +175,6 @@ export default function CountryWrapItem({
           </HStack>
         </VStack>
       </VStack>
-    </WrapItem>
+    </Flex>
   );
 }

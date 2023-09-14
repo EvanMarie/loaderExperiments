@@ -14,25 +14,26 @@ import {
 import { useNavigate } from "@remix-run/react";
 
 export const Colors = {
-  myBlue: "cyan",
-  myPink: "#FF29DD",
-  myGreen: "#7cfcab",
-  myYellow: "#F1B770",
-  myPurple: "#43126D",
-  myDark: "#1F2024",
-  myLight: "#CFFAF7",
+  myBlue: "#0CD7E8",
+  myPink: "#BD0DFF",
+  myGreen: "#00FFCC",
+  myMedium: "#4A5069",
+  myPurple: "#470070",
+  myDark: "#181b26",
+  myLight: "#C5E3FD",
 };
 
 export const ButtonStyles = {
-  bg: Colors.myGreen,
+  bg: Colors.myBlue,
   color: Colors.myDark,
   fontSize: "1rem",
-  w: "100px",
+  w: "125px",
+  h: "30px",
   border: "1px solid",
   shadow: "2xl",
   _hover: {
     bg: Colors.myDark,
-    color: Colors.myGreen,
+    color: Colors.myBlue,
   },
 };
 
@@ -44,16 +45,12 @@ export function NavBar() {
     };
   }
   return (
-    <ButtonGroup
-      mb={3}
-      spacing={4}
-      w="100%"
-      maxW="1200px"
-      bg={Colors.myLight}
-      p={2}
-    >
+    <ButtonGroup mb={3} spacing={4} w="100%" maxW="1200px" p={2}>
       <Button onClick={ClickAction("/")} {...ButtonStyles}>
         Home
+      </Button>
+      <Button onClick={ClickAction("nasa")} {...ButtonStyles}>
+        NASA
       </Button>
       <Button onClick={ClickAction("countries")} {...ButtonStyles}>
         Countries
@@ -73,7 +70,7 @@ export function NavBar() {
 
 export function PageContainer({
   children,
-  bg = Colors.myYellow,
+  bg = Colors.myMedium,
   ...props // capture the rest of the BoxProps properties
 }: { children?: React.ReactNode; bg?: string } & BoxProps) {
   return (
@@ -113,7 +110,12 @@ export function PhotoCard(photo: any) {
           <Box rounded="none" fontSize="1rem" color={Colors.myBlue} h="100px">
             <Text>{photo.title}</Text>
           </Box>
-          <Image w="200px" h="200px" src={photo.url} />
+          <Image
+            w="200px"
+            h="200px"
+            src={photo.url}
+            fallbackSrc="/loading.png"
+          />
         </VStack>
       </CardBody>
     </Card>
@@ -144,3 +146,59 @@ export function ReqresUserCard(user: any) {
     </Card>
   );
 }
+
+export const myShadow = "2px 2px 5px rgba(0,0,0,0.5)";
+
+export const inputStackStyles = {
+  spacing: "0px",
+  fontSize: "1rem",
+  fontWeight: 700,
+  w: "100%",
+};
+
+export const inputLabelStyles = {
+  fontWeight: 700,
+  fontSize: "0.8rem",
+  mb: "0px",
+  color: Colors.myBlue,
+};
+
+export const inputFieldStyles = {
+  variant: "filled",
+  size: "xs",
+  bg: Colors.myLight,
+  color: Colors.myDark,
+  rounded: "md",
+  w: "125px",
+  py: "5px",
+  _focusBorderColor: Colors.myBlue,
+};
+
+export const scrollBarStyles = {
+  // For Chrome, Safari, and newer versions of Edge
+  "&::-webkit-scrollbar": {
+    width: "8px",
+    backgroundColor: "aiArt.700",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    backgroundColor: "aiArt.500",
+    borderRadius: "8px",
+    minHeight: "50px",
+    maxHeight: "150px",
+    shadow: myShadow,
+    transition: "all 0.3s ease-in-out",
+  },
+  "&:hover::-webkit-scrollbar-thumb": {
+    backgroundColor: "aiArt.400",
+    transition: "all 0.3s ease-in-out",
+  },
+
+  // For Firefox
+  "&": {
+    scrollbarWidth: "thin", // This can be "auto", "thin", or "none"
+    scrollbarColor: "cyan", // This styles the thumb and the track
+  },
+  "&:hover": {
+    scrollbarColor: "aiArt.400 aiArt.700",
+  },
+};

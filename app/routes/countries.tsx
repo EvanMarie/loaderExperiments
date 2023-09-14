@@ -22,6 +22,22 @@ export default function Countries() {
   };
 
   const fieldWidth = "300px";
+  const inputStyles = {
+    bg: Colors.myLight,
+    color: Colors.myDark,
+    fontSize: "1rem",
+    w: fieldWidth,
+    border: "1px solid",
+    shadow: "2xl",
+    _hover: {
+      bg: Colors.myDark,
+      color: Colors.myGreen,
+    },
+    _focus: {
+      bg: Colors.myDark,
+      color: Colors.myGreen,
+    },
+  };
 
   return (
     <PageContainer maxW="1500px">
@@ -36,10 +52,9 @@ export default function Countries() {
             value={searchType}
             onChange={(e) => setSearchType(e.target.value)}
             variant="filled"
-            w={fieldWidth}
+            {...inputStyles}
             size="sm"
             rounded="md"
-            bg={Colors.myGreen}
           >
             <option value="name">Name</option>
             <option value="alpha">Code</option>
@@ -51,7 +66,7 @@ export default function Countries() {
           <Input
             variant="filled"
             size="sm"
-            w={fieldWidth}
+            {...inputStyles}
             rounded="md"
             type="text"
             value={searchTerm}
@@ -69,7 +84,7 @@ export default function Countries() {
           </Button>
         </Stack>
 
-        <Wrap w="100%">
+        <Wrap w="100%" justify="center" align="stretch" spacing={4}>
           {countryData && "error" in countryData ? (
             <div>Error: {countryData.error}</div>
           ) : (
