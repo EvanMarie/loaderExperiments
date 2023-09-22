@@ -30,9 +30,9 @@ export default function APODCard({ data }: APODCardProps) {
       spacing={1}
       bg={Colors.myPurple}
       py={2}
-      px={{base: 2, md: 4}}
+      px={{ base: 2, md: 4 }}
       mx={4}
-      w={{base: "375px", md: "400px"}}
+      w={{ base: "375px", md: "400px" }}
       h="575px"
       justify="space-evenly"
       rounded="xl"
@@ -78,7 +78,7 @@ export default function APODCard({ data }: APODCardProps) {
         <HStack
           w="350px"
           bg={Colors.myBlue}
-          {{ base: "0.8rem", md: "0.9rem" }}
+          fontSize={{ base: "0.8rem", md: "0.9rem" }}
           lineHeight="1.1rem"
           p={2}
           pr={0}

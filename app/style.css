@@ -21,3 +21,13 @@ a {
 a:hover {
   color: cyan;
 }
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+  gap: 1rem;
+}
+
+.masonry>* {
+  margin-bottom: 1rem;
+}

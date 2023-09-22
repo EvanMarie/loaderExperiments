@@ -26,7 +26,7 @@ export const Colors = {
 export const ButtonStyles = {
   bg: Colors.myBlue,
   color: Colors.myDark,
-  fontSize: "1rem",
+  fontSize: { base: "12px", md: "15px" },
   w: "125px",
   h: "30px",
   border: "1px solid",
@@ -45,12 +45,15 @@ export function NavBar() {
     };
   }
   return (
-    <ButtonGroup mb={3} spacing={4} w="100%" maxW="1200px" p={2}>
+    <ButtonGroup mb={3} spacing={[1, 2, 3]} w="100%" maxW="1200px" p={2}>
       <Button onClick={ClickAction("/")} {...ButtonStyles}>
         Home
       </Button>
       <Button onClick={ClickAction("nasa")} {...ButtonStyles}>
         NASA
+      </Button>
+      <Button onClick={ClickAction("library")} {...ButtonStyles}>
+        Library
       </Button>
       <Button onClick={ClickAction("countries")} {...ButtonStyles}>
         Countries

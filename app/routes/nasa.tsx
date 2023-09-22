@@ -1,4 +1,4 @@
-import APOD from "~/nasa/apod";
+import APOD from "~/nasa/apod/apod";
 import { PageContainer } from "~/style";
 
 export const API_KEY = "sg7tFr6kjpdAjdnRhiG4norOr69q5Ojpb50jOK4c";
