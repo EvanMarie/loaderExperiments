@@ -6,12 +6,16 @@ import {
   ButtonGroup,
   Card,
   CardBody,
+  Center,
+  Flex,
   HStack,
   Image,
+  Input,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useNavigate } from "@remix-run/react";
+import { Form, useNavigate } from "@remix-run/react";
 
 export const Colors = {
   myBlue: "#0CD7E8",
@@ -54,6 +58,9 @@ export function NavBar() {
       </Button>
       <Button onClick={ClickAction("library")} {...ButtonStyles}>
         Library
+      </Button>
+      <Button onClick={ClickAction("art")} {...ButtonStyles}>
+        Art
       </Button>
       <Button onClick={ClickAction("countries")} {...ButtonStyles}>
         Countries
@@ -205,3 +212,102 @@ export const scrollBarStyles = {
     scrollbarColor: "aiArt.400 aiArt.700",
   },
 };
+
+export function APIDefaultContainer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
+  return (
+    <Flex w="100%" justify="center">
+      <Form method="get">
+        <Stack
+          direction={{ base: "column", sm: "row" }}
+          align="center"
+          justify="center"
+          py={2}
+          w="100%"
+          bg={Colors.myMedium}
+          position="fixed"
+          top="75px"
+          left="0"
+          zIndex={2}
+        >
+          <Input
+            name="q"
+            placeholder="Search for a book"
+            size="sm"
+            w="400px"
+            rounded="md"
+            variant="filled"
+            bg={Colors.myDark}
+            color={Colors.myLight}
+            border="1px solid"
+            focusBorderColor={Colors.myPink}
+            _focus={{
+              bg: Colors.myDark,
+              color: Colors.myLight,
+              _focusBorderColor: Colors.myPink,
+            }}
+            _hover={{
+              bg: Colors.myDark,
+              color: Colors.myLight,
+              _focusBorderColor: Colors.myPink,
+            }}
+          />
+          <Button type="submit" size="sm">
+            Search
+          </Button>
+        </Stack>
+      </Form>
+      <Flex overflow="auto" align="flex-start" pt="50px" position="relative">
+        <Box
+          padding={4}
+          w="100%"
+          mx="auto"
+          bg="gray.800"
+          overflowWrap="break-word"
+          sx={{ columnCount: [1, 1, 2, 2, 3, 4], columnGap: "8px" }}
+        >
+          {children}
+        </Box>
+      </Flex>
+    </Flex>
+  );
+}
+
+export function APICard({
+  children,
+  index,
+}: {
+  children?: React.ReactNode;
+  index?: number;
+}) {
+  const CardColors = [Colors.myBlue, Colors.myPink, Colors.myGreen];
+  return (
+    <Center
+      mb={4}
+      mx={2}
+      key={index}
+      sx={{
+        breakInside: "avoid",
+        WebkitColumnBreakInside: "avoid",
+      }}
+    >
+      <Card
+        w="390px"
+        h="fit-content"
+        bg={index ? CardColors[index % CardColors.length] : Colors.myBlue}
+        shadow="dark-lg"
+        rounded="xl"
+        p={4}
+      >
+        <Center w="100%" h="100%">
+          <VStack w="100%" h="100%" justify="space-between">
+            {children}
+          </VStack>
+        </Center>
+      </Card>
+    </Center>
+  );
+}

@@ -1,8 +1,8 @@
-import LibraryLoader from "~/library/libraryLoader";
+import ArtComponent from "~/art/artLoader";
 import { PageContainer } from "~/style";
-export { loader } from "~/library/libraryLoader";
+export { loader } from "~/art/artLoader";
 
-export default function Library() {
+export default function Art() {
   return (
     <PageContainer
       maxW="110%"
@@ -11,8 +11,7 @@ export default function Library() {
       overflowX="hidden"
       pb="100px"
     >
-      <LibraryLoader />
-      {/* <LibraryFetch /> */}
+      <ArtComponent />
     </PageContainer>
   );
 }
