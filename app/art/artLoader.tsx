@@ -1,4 +1,4 @@
-import { Image, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import { LoaderArgs, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { APICard } from "~/style";
@@ -48,7 +48,6 @@ export default function ArtComponent() {
         </Text>
         <Text>{artwork[0]["thumbnail"].alt_text}</Text>
         <Text>{artwork[0].date_display}</Text>
-        {/* ... */}
       </VStack>
     </APICard>
   );

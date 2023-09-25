@@ -53,11 +53,14 @@ export function NavBar() {
       <Button onClick={ClickAction("/")} {...ButtonStyles}>
         Home
       </Button>
-      <Button onClick={ClickAction("nasa")} {...ButtonStyles}>
-        NASA
-      </Button>
       <Button onClick={ClickAction("library")} {...ButtonStyles}>
         Library
+      </Button>
+      <Button onClick={ClickAction("notesWithSchema")} {...ButtonStyles}>
+        Notes
+      </Button>
+      <Button onClick={ClickAction("nasa")} {...ButtonStyles}>
+        NASA
       </Button>
       <Button onClick={ClickAction("art")} {...ButtonStyles}>
         Art
@@ -182,6 +185,11 @@ export const inputFieldStyles = {
   w: "125px",
   py: "5px",
   _focusBorderColor: Colors.myBlue,
+  _focus: {
+    bg: Colors.myLight,
+    color: Colors.myDark,
+    _focusBorderColor: Colors.myBlue,
+  },
 };
 
 export const scrollBarStyles = {
@@ -191,15 +199,14 @@ export const scrollBarStyles = {
     backgroundColor: "aiArt.700",
   },
   "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "aiArt.500",
+    backgroundColor: Colors.myDark,
     borderRadius: "8px",
-    minHeight: "50px",
-    maxHeight: "150px",
-    shadow: myShadow,
+    minHeight: "40px",
+    maxHeight: "100px",
     transition: "all 0.3s ease-in-out",
   },
   "&:hover::-webkit-scrollbar-thumb": {
-    backgroundColor: "aiArt.400",
+    backgroundColor: Colors.myMedium,
     transition: "all 0.3s ease-in-out",
   },
 
@@ -208,9 +215,9 @@ export const scrollBarStyles = {
     scrollbarWidth: "thin", // This can be "auto", "thin", or "none"
     scrollbarColor: "cyan", // This styles the thumb and the track
   },
-  "&:hover": {
-    scrollbarColor: "aiArt.400 aiArt.700",
-  },
+  // "&:hover": {
+  //   scrollbarColor: "aiArt.400 aiArt.700",
+  // },
 };
 
 export function APIDefaultContainer({

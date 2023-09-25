@@ -6,6 +6,9 @@ html, body {
   font-size: 1.1rem;
   font-weight: 600;
   overflow-x: hidden;
+  scroll-behavior: "smooth";
+  overflow-x: "hidden";
+  overflow-y: "hidden";
 }
 
 * {
@@ -31,3 +34,4 @@ a:hover {
 .masonry>* {
   margin-bottom: 1rem;
 }
+
